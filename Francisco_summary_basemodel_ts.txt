@@ -1,0 +1,14 @@
+Hackaton context.
+What is Dengue?
+How do mosquitoes contribute?
+How was the data collected?
+
+
+Summary:
+
+1. Checked for adm-level (region?) with the highest total count_ovi. This is a good indicator of the abundance of data points (shouldn't we have instead counted the number of nonzero count_ovi entries?...).
+	With this, chose to focus on Pangasinan.
+2. (Noticed that Pangasian only had one non-consecutive datapoint, and used it to) Split the dataset in train and test sets. (time series).
+3. Modelled with exponential smoothing (explained) with different parameters (trend='add', None; seasonal='add', None; seasonal periods=6,12).
+
+4. sqrt of the MSE was measured for all those cases (make nice table!). The ones with oscillations were actually worse than the straight ones, and those were clearly not what we wanted. So we moved on.
