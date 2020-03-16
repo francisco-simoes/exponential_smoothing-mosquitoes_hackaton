@@ -5,6 +5,6 @@
 # Mosquito population prediction
 ### Healthcare hackaton project for the Red Cross.
 
-latex expression test: $\alpha$
+latex expression test: $$\alpha$$
 
 
