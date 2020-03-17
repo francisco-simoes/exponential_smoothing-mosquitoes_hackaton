@@ -23,7 +23,41 @@ For example by simply adding them, so that y = T + S + E, or by assuming multipl
 
 The exponential smoothing methods ignore the error component, and have corresponding models (more specifically state space models). We will only discuss the methods, not the models.
 
+Exponential smoothing was introduced in the late 1950's by Brown, Holt and Winters.
+Roughly speaking, an exponential smoothing method forecasts using a weighted average whose weights decrease exponentially as the corresponding observation gets older.   
+There are different exponential smoothing methods, which we will briefly discuss.
+
+
 ### Simple exponential smoothing 
+
+**Use:** forecasting with data with no trend or seasonality.
+
+To understand simple exponential smoothing it helps to first describe the *average forecasting method*, which is one of the simplest forecasting methods.
+In this case, the forecast is simply the average of the observations: 
+<p align="center">
+  <img src="images/average_forecast.png" alt="hi" class="inline"/>
+</p>
+where |T in the subscript means we are using the T first datapoints for the forecast.
+This is clearly too simple for most cases. 
+
+*Simple exponential smoothing (SES)* is similar to the average method, but the average is weighted, with the weights decreasing exponentially "with age".
+More precisely:
+
+To fit the time series + forecast the next point:
+<p align="center">
+  <img src="images/SES.png" alt="hi" class="inline"/>
+</p>
+where 0 < α < 1 is the so-called *smoothing parameter*.  
+To forecast further in the future one just uses the last predicted value: <img src="images/SESforecast.png" alt="hi" class="inline"/>  
+
+**Remarks:**
+- Notice that the sum of all the weights is 
+<p align="center">
+  <img src="images/weighted.png" alt="hi" class="inline"/>
+</p>
+as it should be in a weighted average.  
+- SES simply forecasts a horizontal straight line, thus not accounting for (changes in the) trend  nor seasonality.
+
 ### Holt's linear trend method
 ### Holt's damped trend methods
 ### Holt-Winters' seasonal methods
