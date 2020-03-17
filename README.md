@@ -59,6 +59,8 @@ as it should be in a weighted average.
 
 - SES simply forecasts a horizontal straight line, thus not accounting for seasonality or (changes in the) trend.
 
+- A good value for α is usually found using least squares (minimizing the sum of squared errors (SSE)).
+
 ### Holt's linear trend method
 ### Holt's damped trend methods
 ### Holt-Winters' seasonal methods
