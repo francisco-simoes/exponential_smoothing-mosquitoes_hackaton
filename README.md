@@ -86,19 +86,22 @@ where 0 < α < 1 is the smoothing parameter for the level and 0 < β\* < 1 is th
 ### Holt's damped trend methods
 **Use:** forecasting using data with a decreasing trend but without seasonality.
 
-It is clear that the Holt's linear tred method tens
-*Holt's damped trend method* is an extension of SES which separates T in two components: the level l and the trend (slope) b; it modifies the forecast and smoothing equations and introduces a new equation for the new component b as follows:
+It is clear that the Holt's linear trend method tends to overshoot in many cases for long forecast horizons (h substancially greater than 1). One can try to solve this by introducing damping of the trend such that the level does not increase indefinitely.
+
+*Holt's damped trend method* is similar to Holt's linear trend method, but includes a *damping parameter* 0 < ϕ < 1 as follows:
 <p align="center">
-  <img src="images/HoltLinear.png" alt="hi" class="inline"/>
+  <img src="images/Damped.png" alt="hi" class="inline"/>
 </p>
-where 0 < α < 1 is the smoothing parameter for the level and 0 < β\* < 1 is the smoothing parameter for the trend.  
 
 **Remarks:**
-- The level lₜ at time t is still (like in SES) a weighted average between yₜ and the estimate of yₜ (using the data points up to time t-1).  
-- The trend bₜ at time t is a weighted average between the natural estimate lₜ - lₜ₋₁ of the slope/trend and the previous trend bₜ₋₁ .
-- The forecast is no longer flat! Instead, it is a linear function of h.
-### Holt-Winters' seasonal methods
-### What method to use?
+- It is easy to see how bₜ and lₜ are damped. To see that the forecasts of yₜ get flatened (capped slope) for high h, just notice that:
+<p align="center">
+  <img src="images/flattens.png" alt="hi" class="inline"/>
+</p>
+So *e.g.* for ϕ = 0.9 the forecast approaches the line lₜ + 9bₜ (its slope never surpasses 9bₜ).
+
+### Holt-Winters' additive seasonal method
+### Table with all Exponential Smoothing methods
 
 
 
