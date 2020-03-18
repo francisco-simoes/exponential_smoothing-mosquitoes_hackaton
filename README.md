@@ -17,7 +17,7 @@ A point forecast can be obtained by taking the mean of this probability distribu
 
 ## Exponential smoothing forecasting methods [Hyndman, Athanasopoulos]
 
-It is common to try to split a time series into three components: the *trend* (T), *seasonal* (S) and *error* (E) components. 
+It is common to try to split a time series into three components: the *trend* (or level) (T), *seasonal* (S) and *error* (E) components. 
 These components can be combined in different ways.
 For example by simply adding them, so that y = T + S + E, or by assuming multiplicative seasonality but additive error, so that y = T x S + E.
 
@@ -29,8 +29,7 @@ There are different exponential smoothing methods, which we will briefly discuss
 
 
 ### Simple exponential smoothing 
-
-**Use:** forecasting with data with no trend or seasonality.
+**Use:** forecasting using data with no trend and no seasonality.
 
 To understand simple exponential smoothing it helps to first describe the *average forecasting method*, which is one of the simplest forecasting methods.
 In this case, the forecast is simply the average of the observations: 
@@ -57,12 +56,47 @@ To forecast further in the future one just uses the last predicted value: <img s
 </p>
 as it should be in a weighted average.  
 
-- SES simply forecasts a horizontal straight line, thus not accounting for seasonality or (changes in the) trend.
+- SES simply forecasts a horizontal straight line, thus not accounting for seasonality or trend.
 
 - A good value for α is usually found using least squares (minimizing the sum of squared errors (SSE)).
 
+- The way we defined SES is fairly natural.
+It turns out that we can formulate SES in another form - called the *component form* - which will be useful for future generalization of this method.
+It consists of two equations:
+<p align="center">
+  <img src="images/componentsSES.png" alt="hi" class="inline"/>
+</p>
+
+
 ### Holt's linear trend method
+**Use:** forecasting using data with an approximately constant trend but without seasonality.
+
+*Holt's linear trend method* is an extension of SES which separates T in two components: the level l and the trend (slope) b; it modifies the forecast and smoothing equations and introduces a new equation for the new component b as follows:
+<p align="center">
+  <img src="images/HoltLinear.png" alt="hi" class="inline"/>
+</p>
+where 0 < α < 1 is the smoothing parameter for the level and 0 < β\* < 1 is the smoothing parameter for the trend.  
+
+**Remarks:**
+- The level lₜ at time t is still (like in SES) a weighted average between yₜ and the estimate of yₜ (using the data points up to time t-1).  
+- The trend bₜ at time t is a weighted average between the natural estimate lₜ - lₜ₋₁ of the slope/trend and the previous trend bₜ₋₁ .
+- The forecast is no longer flat! Instead, it is a linear function of h.
+
+
 ### Holt's damped trend methods
+**Use:** forecasting using data with a decreasing trend but without seasonality.
+
+It is clear that the Holt's linear tred method tens
+*Holt's damped trend method* is an extension of SES which separates T in two components: the level l and the trend (slope) b; it modifies the forecast and smoothing equations and introduces a new equation for the new component b as follows:
+<p align="center">
+  <img src="images/HoltLinear.png" alt="hi" class="inline"/>
+</p>
+where 0 < α < 1 is the smoothing parameter for the level and 0 < β\* < 1 is the smoothing parameter for the trend.  
+
+**Remarks:**
+- The level lₜ at time t is still (like in SES) a weighted average between yₜ and the estimate of yₜ (using the data points up to time t-1).  
+- The trend bₜ at time t is a weighted average between the natural estimate lₜ - lₜ₋₁ of the slope/trend and the previous trend bₜ₋₁ .
+- The forecast is no longer flat! Instead, it is a linear function of h.
 ### Holt-Winters' seasonal methods
 ### What method to use?
 
