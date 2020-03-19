@@ -106,6 +106,7 @@ So *e.g.* for ϕ = 0.9 the forecast approaches the line lₜ + 9bₜ (its slope 
 TODO:
 - I had to add smth to the data to be able to use the multiplicative methods. Is that ok?
 - Follow https://machinelearningmastery.com/how-to-grid-search-triple-exponential-smoothing-for-time-series-forecasting-in-python/ for cleaner search grid.
+- Add plots.
 
 
 
