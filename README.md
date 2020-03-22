@@ -90,7 +90,7 @@ It consists of two equations:
 where 0 < α < 1 is the smoothing parameter for the level and 0 < β\* < 1 is the smoothing parameter for the trend.  
 
 <p align="center">
-  <img src="images/Plotlinear.png" alt="hi" class="inline"/>
+  <img src="images/PlotLinear.png" alt="hi" class="inline"/>
 </p>
 
 **Remarks:**
