@@ -1,5 +1,5 @@
 # Mosquito population forecast with Exponential smoothing
-
+(IN DEVELOPMENT)
 ## Context
 This is a summary of the exponential smoothing methods, as applied to the forecast of the mosquito population in the Philippines.
 This is supposed to support the notebook in this repository, which was created during a Healthcare Hackaton on the February 15th and 16th 2020. My team tackled the problem of forecasting the mosquito population (to better prepare for Dengue) in the Philippines. This project was proposed by the Red Cross, and we ended up writing a Medium article about it.
