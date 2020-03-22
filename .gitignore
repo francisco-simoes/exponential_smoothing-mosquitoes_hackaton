@@ -3,3 +3,7 @@ models/
 Visuals/
 *_
 equations.*
+exploration/*_
+README.pdf
+.ipynb_checkpoints
+Article_FranciscoPart.md
