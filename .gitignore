@@ -3,8 +3,10 @@ models/
 Visuals/
 *_
 equations.*
-exploration/*_
 README.pdf
 .ipynb_checkpoints
-Article_FranciscoPart.md
+Article_FranciscoPart.*
+exploration/*_
 exploration/.ipynb_checkpoints/
+TimeSeries_notebook/*_
+TimeSeries_notebook/.ipynb_checkpoints/
