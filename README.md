@@ -1,12 +1,12 @@
 # Mosquito population forecast with Exponential smoothing
-(IN DEVELOPMENT)
 ## Context
-This is a summary of the exponential smoothing methods, as applied to the forecast of the mosquito population in the Philippines.
-This is supposed to support the notebook in this repository, which was created during a Healthcare Hackaton on the February 15th and 16th 2020. My team tackled the problem of forecasting the mosquito population (to better prepare for Dengue) in the Philippines. This project was proposed by the Red Cross, and we ended up writing a Medium article about it.
+This is a summary of the exponential smoothing methods, as applied to the forecast of the mosquito population in the Philippines using a grid search.
+The notebook in this repository was created during a Healthcare Hackaton on the February 15th and 16th 2020. My team tackled the problem of forecasting the mosquito population (to better prepare for Dengue) in the Philippines. This project was proposed by the Red Cross, and we ended up writing a Medium article about it (not published yet).
 
-More information about the problem and our approach can be found in said article. Here it suffices to say that a baseline exponential smoothing time series model was our starting point, and I was responsible for that. 
+More information about the problem and our approach can be found in said article. Here it suffices to say that a baseline exponential smoothing time series model was one of our first tries. Back then I did not know much about it, so I decided explore the topic and write this, even though in the specific case of the mosquitoes forecast it did not perform very well.
 
 Let's review the exponential smoothing methods and see what we get when we apply them to the mosquito population.
+Of course the grid search over all exponential smoothing methods is an overkill, but for the purposes of understanding all the exponential smoothing methods and seeing them in action I chose to do it.
 
 ## Time series [Schumway]
 A *stochastic process* is a set of random variables {yₜ, t ∈ I}. 
@@ -156,7 +156,7 @@ There are also models with multiplicative trend, but those are seldom useful and
 
 ## When applied to the data:
 
-Running a grid search over all exponential smoothing methods, the result is slightly disappointing: the best exponential smoothing method is the SES, which forecasts a flat line, a sqrt deviation of 7.3 (which will turn out to be worse than the Sarimax approach). So we dropped this used the Sarimax method as the baseline method instead. This was someone else's responsability.
+Running a grid search over all exponential smoothing methods, the result is slightly disappointing: the best exponential smoothing method is the SES, which forecasts a flat line, a sqrt deviation of 7.3 (which will turn out to be worse than the Sarimax approach). So we dropped this and used the Sarimax method as the baseline method instead. This was someone else's responsability.
 
 Do keep in mind that it was unlikely for us to obtain a successful model this simple time series approach - the population of mosquitoes most certainly depends on many other factors like the weather, which we include at a later stage. But first we needed a baseline model, so this was still worth doing.
 
